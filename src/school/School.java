@@ -53,7 +53,6 @@ public class School {
         Student.printNames();
         Teacher.printNames();
         
-        System.out.println("56235235");
         stan.printStudentName();
       
     }

@@ -61,7 +61,7 @@ public class Teacher extends Person {
         if (theCourse != null) {
             Student s = theCourse.getStudent();
             if (s != null)
-                System.out.println(s.getName());
+                System.out.println(getName() + " teaches " + s.getName());
         }
     }
     
