@@ -63,6 +63,7 @@ public class Teacher extends Person {
             if (s != null)
                 System.out.println(getName() + " teaches " + s.getName());
         }
+        else System.out.println(getName() + " teaches no one");
     }
     
 }
