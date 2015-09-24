@@ -10,8 +10,8 @@ public class School {
         Student john = 
         Student.addStudent("John",Person.Gender.Male,45,11);
         
-        Teacher yeet = 
-        Teacher.addTeacher("Mr. Yeet",Person.Gender.Male,140,40);
+        Teacher doot = 
+        Teacher.addTeacher("Mr. Doot",Person.Gender.Male,140,40);
         Teacher straug = 
         Teacher.addTeacher("Mrs. Straug",Person.Gender.Female,190,35);
         Teacher mack = 
@@ -46,7 +46,7 @@ public class School {
         geom.addTeacher(straug);
         spanish.addTeacher(mack);
         photo.addTeacher(stan);
-        cs.addTeacher(yeet);
+        cs.addTeacher(doot);
         
         Person.printNames();
         Course.printNames();
