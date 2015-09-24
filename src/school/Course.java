@@ -11,6 +11,7 @@ public class Course {
     private int period;
     
     private Student theStudent;
+    private Teacher theTeacher;
 
     public static Course addCourse(String _name,
     Type _type, int _period)
@@ -39,7 +40,15 @@ public class Course {
             theStudent = _student;
             _student.addCourse(this);
         }
-    }        
+    }      
+    public void addTeacher(Teacher _teacher)
+    {
+        if (theTeacher == null)
+        {
+            theTeacher = _teacher;
+            _teacher.addCourse(this);
+        }
+    }    
     
     public void setPeriod(int _period)
     {
@@ -77,4 +86,8 @@ public class Course {
     {
         return(name + " " + type + " " + period + " " + theStudent.getName());
     }    
+    
+    public Student getStudent() {
+        return theStudent;
+    }
 }
