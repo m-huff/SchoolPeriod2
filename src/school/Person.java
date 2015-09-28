@@ -83,7 +83,7 @@ public class Person {
     }  
     public static void printNames()
     {
-        System.out.println("===printNames===");
+        System.out.println("===printAllNames===");
         for (int index=0;index<people.size();index++)
         {
                 System.out.println(people.get(index).getName());

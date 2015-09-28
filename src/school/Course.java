@@ -10,7 +10,7 @@ public class Course {
     private Type type;
     private int period;
     
-    private Student theStudent;
+    private static ArrayList<Student> students = new ArrayList<Student>();
     private Teacher theTeacher;
 
     public static Course addCourse(String _name,
@@ -35,9 +35,8 @@ public class Course {
 
     public void addStudent(Student _student)
     {
-        if (theStudent == null)
+        if (_student != null)
         {
-            theStudent = _student;
             _student.addCourse(this);
         }
     }      
@@ -48,7 +47,17 @@ public class Course {
             theTeacher = _teacher;
             _teacher.addCourse(this);
         }
-    }    
+    }   
+    
+    public boolean setStudentOK(Student _student) {
+        if (_student != null && !students.contains(_student))
+            return true;
+        return false;
+    }
+    
+    public void setStudentDoIt(Student _student) {
+        students.add(_student);
+    }
     
     public void setPeriod(int _period)
     {
@@ -84,10 +93,10 @@ public class Course {
     }    
     public String toString()
     {
-        return(name + " " + type + " " + period + " " + theStudent.getName());
+        return(name + " " + type + " " + period + " ");// + theStudent.getName());
     }    
     
-    public Student getStudent() {
-        return theStudent;
-    }
+//    public Student[] getStudents() {
+//        return students.;
+//    }
 }

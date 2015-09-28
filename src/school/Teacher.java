@@ -3,7 +3,7 @@ package school;
 public class Teacher extends Person {
     
     private int meanness;
-    private Course theCourse;
+    private Course[] courses = new Course[4];
     
     public Teacher() {
         super();
@@ -38,9 +38,9 @@ public class Teacher extends Person {
 
     public void addCourse(Course _course)
     {
-        if (theCourse == null)
+        if (courses[_course.getPeriod()-1] == null)
         {
-            theCourse = _course;
+            courses[_course.getPeriod()-1] = _course;
            // _course.setTeacher(this);
         }
     }   
@@ -57,13 +57,13 @@ public class Teacher extends Person {
              
     }   
     
-    public void printStudentName() {
-        if (theCourse != null) {
-            Student s = theCourse.getStudent();
-            if (s != null)
-                System.out.println(getName() + " teaches " + s.getName());
-        }
-        else System.out.println(getName() + " teaches no one");
-    }
+//    public void printStudentName() {
+//        if (theCourse != null) {
+//            Student s = theCourse.getStudent();
+//            if (s != null)
+//                System.out.println(getName() + " teaches " + s.getName());
+//        }
+//        else System.out.println(getName() + " teaches no one");
+//    }
     
 }
