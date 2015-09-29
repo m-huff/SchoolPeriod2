@@ -1,8 +1,9 @@
 package school;
 public class Student extends Person{
     private int gradeLevel;
-    private Course[] courses = new Course[4];
-    
+    private Course[] courses = new Course[Course.PERIODS];
+    private double[] gradeScore = new double[Course.PERIODS];
+
     public static Student addStudent(String _name,
     Gender _gender, int _weight,int _gradeLevel)
     {
@@ -17,13 +18,13 @@ public class Student extends Person{
         super(_name,_gender,_weight);
         gradeLevel = _gradeLevel;
     }
-    public boolean addCourse(Course _course) {
+    public boolean addCourse(Course _course, double _gpa) {
         if (!setCourseOK(_course))
             return false;
         if (!_course.setStudentOK(this))
             return false;
         _course.setStudentDoIt(this);
-        setCourseDoIt(_course);
+        setCourseDoIt(_course, _gpa);
         return true;
     }       
     public void setGradeLevel(int _gradeLevel)
@@ -43,8 +44,9 @@ public class Student extends Person{
         return true;
     }
     
-    public void setCourseDoIt(Course _course) {
+    public void setCourseDoIt(Course _course, double _gpa) {
         courses[_course.getPeriod()-1] = _course;
+        gradeScore[_course.getPeriod()-1] = _gpa;
     }
     
     public static void printNames()
@@ -57,5 +59,28 @@ public class Student extends Person{
                 System.out.println(temp.getName());
         }
              
-    }       
+    } 
+    
+    public void printTeachersNames()
+    {
+        System.out.println(getName() + " is taught by:");
+        for (Course temp : courses)
+        {
+            if (temp != null)
+                System.out.println(temp.getTeacher().getName());
+        }
+             
+    }
+    
+    public double getGPA() {
+        double gpa = 0.0;
+        int course = 0;
+        for (Course temp : courses) {
+            if (temp != null) {
+                gpa += gradeScore[temp.getPeriod()];
+                course++;
+            }
+        }
+        return gpa / course;
+    }
 }

@@ -38,10 +38,10 @@ public class School {
  
         
         //System.out.println(joe);        
-        geom.addStudent(john);
-        spanish.addStudent(billyJoe);
-        photo.addStudent(jill);
-        cs.addStudent(joe);
+        geom.addStudent(john, 4.0);
+        spanish.addStudent(billyJoe, 3.1);
+        photo.addStudent(jill, 2.0);
+        cs.addStudent(joe, 3.5);
         
         geom.addTeacher(straug);
         spanish.addTeacher(mack);

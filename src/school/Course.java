@@ -10,6 +10,8 @@ public class Course {
     private Type type;
     private int period;
     
+    public static final int PERIODS = 4;
+    
     private static ArrayList<Student> students = new ArrayList<Student>();
     private Teacher theTeacher;
 
@@ -33,13 +35,21 @@ public class Course {
         period = _period;
     }   
 
-    public void addStudent(Student _student)
+    public boolean addStudent(Student _student, double _gpa)
     {
-        if (_student != null)
-        {
-            _student.addCourse(this);
-        }
-    }      
+        if (!setStudentOK(_student))
+            return false;
+        if (!_student.setCourseOK(this))
+            return false;
+        _student.setCourseDoIt(this, _gpa);
+        setStudentDoIt(_student);
+        return true;
+    }     
+    
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+    
     public void addTeacher(Teacher _teacher)
     {
         if (theTeacher == null)
@@ -48,6 +58,10 @@ public class Course {
             _teacher.addCourse(this);
         }
     }   
+    
+    public Teacher getTeacher() {
+        return theTeacher;
+    }
     
     public boolean setStudentOK(Student _student) {
         if (_student != null && !students.contains(_student))

@@ -3,7 +3,7 @@ package school;
 public class Teacher extends Person {
     
     private int meanness;
-    private Course[] courses = new Course[4];
+    private Course[] courses = new Course[Course.PERIODS];
     
     public Teacher() {
         super();
@@ -66,4 +66,16 @@ public class Teacher extends Person {
 //        else System.out.println(getName() + " teaches no one");
 //    }
     
+    public void printStudentsNames()
+    {
+        System.out.println(getName() + " teaches:");
+        for (Course temp : courses) {
+            if (temp != null) {
+                for (Student s : temp.getStudents()) {
+                    if (s != null)
+                        System.out.println(s.getName());
+                }
+            }
+        }
+    }
 }
