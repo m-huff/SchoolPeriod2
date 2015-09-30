@@ -52,6 +52,9 @@ public class School {
         Course.printNames();
         Student.printNames();
         Teacher.printNames();
+
+        Student.printStudentWithHighestGPA();
+        Student.printStudentWithMostElectives();
       
     }
 }

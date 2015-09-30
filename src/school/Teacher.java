@@ -78,4 +78,16 @@ public class Teacher extends Person {
             }
         }
     }
+    
+    public void printTeachersMeanerThan(double _mean)
+    {
+        for (Person temp : people)
+        {
+            if (temp instanceof Teacher) {
+                if (((Teacher)temp).getMeanness() > _mean)
+                    System.out.println(temp.getName());
+            }
+        }
+             
+    }
 }
