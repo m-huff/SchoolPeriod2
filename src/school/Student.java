@@ -1,4 +1,7 @@
 package school;
+
+import java.util.ArrayList;
+
 public class Student extends Person{
     private int gradeLevel;
     private Course[] courses = new Course[Course.PERIODS];
@@ -103,6 +106,25 @@ public class Student extends Person{
                 
         }
         System.out.println(student.getName() + ": " + mostElectives);
+    } 
+    
+    public static void printHonorsStudents()
+    {
+        System.out.println(
+        "===printHonorsStudents=== ");
+        ArrayList<Student> honorsstudents = new ArrayList<Student>();
+        for (Person temp : people) {
+            if (temp instanceof Student) {
+
+                for (Course c : ((Student)temp).courses) {
+                    if (c != null && c.getHonors() == true) {
+                        honorsstudents.add((Student)temp);
+                    }
+                }
+            }
+        }
+        for (int i = 0; i < honorsstudents.size(); i++)
+            System.out.println(honorsstudents.get(i).getName());
     } 
     
     public void printTeachersNames()

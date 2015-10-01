@@ -79,6 +79,27 @@ public class Teacher extends Person {
         }
     }
     
+    public Teacher getTeacherWhoTeachesMostElectivesInTheSchoolWithTheStudentsInTheClass() {
+        int highElectives = 0;
+        Teacher highTeacher = null;
+        for (Person temp : people) {
+            if (temp instanceof Teacher) {
+                int numElective = 0;
+                Teacher teacher = (Teacher)temp;
+                for (Course course : teacher.courses) {
+                    if (course.getType() == Course.Type.Elective) {
+                        numElective++;
+                    }
+                }
+                if (numElective > highElectives) {
+                    highElectives = numElective;
+                    highTeacher = teacher;
+                }
+            }
+        }
+        return highTeacher;
+    }
+    
     public void printTeachersMeanerThan(double _mean)
     {
         for (Person temp : people)

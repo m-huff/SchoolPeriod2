@@ -9,6 +9,7 @@ public class Course {
     private String name;
     private Type type;
     private int period;
+    private boolean honors;
     
     public static final int PERIODS = 4;
     
@@ -16,9 +17,9 @@ public class Course {
     private Teacher theTeacher;
 
     public static Course addCourse(String _name,
-    Type _type, int _period)
+    Type _type, int _period, boolean _honors)
     {
-        Course temp = new Course(_name,_type,_period);
+        Course temp = new Course(_name,_type,_period, _honors);
         courses.add(temp);
         return(temp);
     }
@@ -28,11 +29,12 @@ public class Course {
         type = Type.Elective;
         period = 1;
     }
-    Course(String _name,Type _type, int _period)
+    Course(String _name,Type _type, int _period, boolean _honors)
     {
         name = _name;
         type = _type;
         period = _period;
+        honors = _honors;
     }   
 
     public boolean addStudent(Student _student, double _gpa)
@@ -97,6 +99,16 @@ public class Course {
     {
         return(type);
     }  
+    
+    public void setHonors(boolean _honors)
+    {
+        honors = _honors;
+    }
+    public boolean getHonors()
+    {
+        return(honors);
+    }  
+    
     public static void printNames()
     {
         System.out.println("===printNames===");
@@ -109,8 +121,4 @@ public class Course {
     {
         return(name + " " + type + " " + period + " ");// + theStudent.getName());
     }    
-    
-//    public Student[] getStudents() {
-//        return students.;
-//    }
 }

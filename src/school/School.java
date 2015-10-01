@@ -23,13 +23,13 @@ public class School {
 //        Person.printNames(Person.Gender.Female);
 
         Course geom = 
-        Course.addCourse("Geometry", Course.Type.Math, 1);
+        Course.addCourse("Geometry", Course.Type.Math, 1, true);
         Course photo = 
-        Course.addCourse("Photography", Course.Type.Elective, 3);
+        Course.addCourse("Photography", Course.Type.Elective, 3, false);
         Course cs = 
-        Course.addCourse("Computer Science", Course.Type.Elective, 2);
+        Course.addCourse("Computer Science", Course.Type.Elective, 2, false);
         Course spanish = 
-        Course.addCourse("Spanish", Course.Type.Language, 4);
+        Course.addCourse("Spanish", Course.Type.Language, 4, false);
         Course.printNames();
     
         
@@ -55,6 +55,8 @@ public class School {
 
         Student.printStudentWithHighestGPA();
         Student.printStudentWithMostElectives();
+        
+        Student.printHonorsStudents();
       
     }
 }
